@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Bookshop.ServiceInterface;
-using Funq;
+﻿using System.Reflection;
+using Bookshop.ServiceInterface.IoC;
+using Bookshop.ServiceInterface.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
+using ServiceStack.Configuration;
+using StructureMap;
+using Container = Funq.Container;
 
 namespace Bookshop.WebApi
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
@@ -44,6 +39,22 @@ namespace Bookshop.WebApi
 
         public override void Configure(Container container)
         {
+            container.Adapter = new StructureMapContainerAdapter();
+        }
+    }
+
+    public class StructureMapContainerAdapter : IContainerAdapter
+    {
+        private readonly IContainer _container = new StructureMap.Container(new BookshopServiceRegistry());
+
+        public T TryResolve<T>()
+        {
+            return _container.TryGetInstance<T>();
+        }
+
+        public T Resolve<T>()
+        {
+            return _container.GetInstance<T>();
         }
     }
 }

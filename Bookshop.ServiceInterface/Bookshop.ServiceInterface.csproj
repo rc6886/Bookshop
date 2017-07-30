@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Marten" Version="1.5.2" />
     <PackageReference Include="ServiceStack.Core" Version="1.0.43" />
     <PackageReference Include="ServiceStack.Interfaces.Core" Version="1.0.43" />
+    <PackageReference Include="StructureMap" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>
