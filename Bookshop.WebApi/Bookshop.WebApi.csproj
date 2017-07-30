@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bookshop.ServiceInterface\Bookshop.ServiceInterface.csproj" />
+    <ProjectReference Include="..\Bookshop.ServiceModel\Bookshop.ServiceModel.csproj" />
+  </ItemGroup>
+
 </Project>
