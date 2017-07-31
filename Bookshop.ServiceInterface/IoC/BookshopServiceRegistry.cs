@@ -6,14 +6,14 @@ namespace Bookshop.ServiceInterface.IoC
 {
     public class BookshopServiceRegistry : Registry
     {
-        public BookshopServiceRegistry()
+        public BookshopServiceRegistry(string connectionString)
         {
             ForSingletonOf<IDocumentStore>().Use("Build the DocumentStore Singleton", () =>
             {
                 return DocumentStore.For(options =>
                 {
-                    options.Connection("host=localhost;database=marten_test;password=Blinds!@;username=postgres");
-                    options.AutoCreateSchemaObjects = AutoCreate.All;
+                    options.Connection(connectionString);
+                    options.AutoCreateSchemaObjects = AutoCreate.CreateOrUpdate;
                 });
             });
 
