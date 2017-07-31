@@ -1,21 +1,49 @@
 ﻿using System;
 using System.Linq;
-using Bookshop.ServiceInterface.Domain;
 using Bookshop.ServiceInterface.Services;
 using Bookshop.ServiceModel.Commands;
+using Bookshop.ServiceModel.Queries;
 using Shouldly;
 using Xunit;
+using Book = Bookshop.ServiceInterface.Domain.Book;
 
 namespace Bookshop.IntegrationTests.Services
 {
     [Collection("Database Test")]
-    public class BooksServiceTests : IClassFixture<DatabaseCleanupFixture>
+    public class BooksServiceTests : IDisposable
     {
         private readonly DatabaseFixture _fixture;
 
         public BooksServiceTests(DatabaseFixture fixture)
         {
             _fixture = fixture;
+        }
+
+        [Fact]
+        public void Should_Get_Book()
+        {
+            var book = new Book
+            {
+                Id = Guid.NewGuid(),
+                Title = "Title 1",
+                Description = "Description 1",
+                Image = "Image 1",
+                Price = 9.99M,
+            };
+
+            _fixture.Session.Store(book);
+            _fixture.Session.SaveChanges();
+
+            var bookService = _fixture.GetService<BooksService>();
+
+            var result = bookService.Get(new GetBooksQuery());
+
+            result.Books.Count().ShouldBe(1);
+
+            result.Books.ElementAt(0).Title.ShouldBe(book.Title);
+            result.Books.ElementAt(0).Description.ShouldBe(book.Description);
+            result.Books.ElementAt(0).Image.ShouldBe(book.Image);
+            result.Books.ElementAt(0).Price.ShouldBe(book.Price);
         }
 
         [Fact]
@@ -40,6 +68,11 @@ namespace Bookshop.IntegrationTests.Services
             book.Description.ShouldBe(addBookCommand.Description);
             book.Image.ShouldBe(addBookCommand.Image);
             book.Price.ShouldBe(addBookCommand.Price);
+        }
+
+        public void Dispose()
+        {
+            _fixture.DocumentStore.Advanced.Clean.DeleteAllDocuments();
         }
     }
 }

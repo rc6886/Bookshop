@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Linq;
 using Bookshop.ServiceModel.Commands;
 using Bookshop.ServiceModel.Queries;
 using Marten;
 using ServiceStack;
+using Book = Bookshop.ServiceInterface.Domain.Book;
 
 namespace Bookshop.ServiceInterface.Services
 {
@@ -16,18 +16,13 @@ namespace Bookshop.ServiceInterface.Services
             _session = session;
         }
 
-        public IEnumerable<Book> Get(GetBooksQuery query)
+        public GetBooksResponse Get(GetBooksQuery query)
         {
-            return new List<Book>
+            var books = _session.Query<Book>().ToList();
+
+            return new GetBooksResponse
             {
-                new Book
-                {
-                    Id = Guid.NewGuid(),
-                    Title = "Title 1",
-                    Description = "Description 1", 
-                    Image = "Image 1",
-                    Price = 9.99M,
-                }
+                Books = books.ConvertAll(x => x.ConvertTo<ServiceModel.Queries.Book>()),
             };
         }
 

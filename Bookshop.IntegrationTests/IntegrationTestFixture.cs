@@ -74,19 +74,4 @@ namespace Bookshop.IntegrationTests
     public class DatabaseTest : ICollectionFixture<DatabaseFixture>
     {
     }
-
-    public class DatabaseCleanupFixture : IDisposable
-    {
-        private readonly IDocumentStore _documentStore;
-
-        public DatabaseCleanupFixture(DatabaseFixture fixture)
-        {
-            _documentStore = fixture.DocumentStore;
-        }
-
-        public void Dispose()
-        {
-            _documentStore.Advanced.Clean.DeleteAllDocuments();
-        }
-    }
 }
