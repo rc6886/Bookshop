@@ -36,4 +36,4 @@ task CreateApiRelease RunCIBuild, {
     Set-Location ..\..
 }
 
-task RunCIBuild CleanSolution, BuildSolution, RunIntegrationTests
+task RunCIBuild CleanSolution, RestorePackages, BuildSolution, RunIntegrationTests
