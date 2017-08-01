@@ -31,7 +31,7 @@ namespace Bookshop.IntegrationTests
             var configuration = builder.Build();
             var testConnectionString = configuration.GetConnectionString("BookshopTestDb");
             var testPassword = string.IsNullOrEmpty(configuration.GetConnectionString("AppVeyorPassword"))
-                ? "Blinds!@"
+                ? "postgres"
                 : configuration.GetConnectionString("AppVeyorPassword");
 
             _dbFactory = new OrmLiteConnectionFactory($"host=localhost;password={testPassword};username=postgres",
@@ -44,7 +44,7 @@ namespace Bookshop.IntegrationTests
 
             if (!string.IsNullOrEmpty(configuration.GetConnectionString("AppVeyorPassword")))
             {
-                testConnectionString = testConnectionString.Replace("Blinds!@", testPassword);
+                testConnectionString = testConnectionString.Replace("postgres", testPassword);
             }
 
             _appHost = new AppHost(testConnectionString);
