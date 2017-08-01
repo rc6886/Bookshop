@@ -7,7 +7,7 @@ using Book = Bookshop.ServiceInterface.Domain.Book;
 
 namespace Bookshop.ServiceInterface.Services
 {
-    public class BooksService : IService
+    public class BooksService : Service
     {
         private readonly IDocumentSession _session;
 
@@ -28,7 +28,14 @@ namespace Bookshop.ServiceInterface.Services
 
         public void Post(AddBookCommand command)
         {
-            var book = command.ConvertTo<Domain.Book>();
+            var book = command.ConvertTo<Book>();
+            _session.Store(book);
+            _session.SaveChanges();
+        }
+
+        public void Put(UpdateBookCommand command)
+        {
+            var book = command.ConvertTo<Book>();
             _session.Store(book);
             _session.SaveChanges();
         }
