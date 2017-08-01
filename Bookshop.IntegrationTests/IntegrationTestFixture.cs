@@ -24,7 +24,17 @@ namespace Bookshop.IntegrationTests
 
         public DatabaseFixture()
         {
-            _dbFactory = new OrmLiteConnectionFactory("host=localhost;password=Blinds!@;username=postgres",
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            var configuration = builder.Build();
+            var testConnectionString = configuration.GetConnectionString("BookshopTestDb");
+            var testPassword = string.IsNullOrEmpty(configuration.GetConnectionString("AppVeyorPassword"))
+                ? "Blinds!@"
+                : configuration.GetConnectionString("AppVeyorPassword");
+
+            _dbFactory = new OrmLiteConnectionFactory($"host=localhost;password={testPassword};username=postgres",
                 new PostgreSqlDialectProvider());
 
             using (var db = _dbFactory.Open())
@@ -32,12 +42,10 @@ namespace Bookshop.IntegrationTests
                 db.ExecuteSql("DROP DATABASE IF EXISTS bookshop_test; CREATE DATABASE bookshop_test;");
             }
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-
-            var configuration = builder.Build();
-            var testConnectionString = configuration.GetConnectionString("BookshopTestDb");
+            if (!string.IsNullOrEmpty(configuration.GetConnectionString("AppVeyorPassword")))
+            {
+                testConnectionString = testConnectionString.Replace("Blinds!@", testPassword);
+            }
 
             _appHost = new AppHost(testConnectionString);
             _appHost.Init();

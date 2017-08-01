@@ -1,6 +1,7 @@
 # Script Variables
 
-$WebApiProjectFolder = ".\Bookshop.WebApi"
+$WebApiProjectFolder = ".\Bookshop.WebApi\"
+$IntegrationTestProjectFolder = ".\Bookshop.IntegrationTests\"
 
 task RestorePackages {
     exec { dotnet restore }
@@ -19,6 +20,12 @@ task WatchWebApp {
 }
 
 task BuildSolution {
+    SetConnectionStringForAppVeyorTestDb -Password ""
+
+    If ($env:APPVEYOR -eq $True) {
+        SetConnectionStringForAppVeyorTestDb -Password "Password12!"
+    }
+
     exec { dotnet build "Bookshop.sln" }
 }
 
@@ -34,6 +41,14 @@ task CreateApiRelease RunCIBuild, {
     Set-Location $WebApiProjectFolder
     exec {dotnet publish }
     Set-Location ..\..
+}
+
+Function SetConnectionStringForAppVeyorTestDb {
+    param([string]$Password)
+
+    $a = Get-Content "$IntegrationTestProjectFolder\appSettings.json" -raw | ConvertFrom-Json
+    $a.ConnectionStrings | % {$_.AppVeyorPassword="$Password"}
+    $a | ConvertTo-Json  | set-content "$IntegrationTestProjectFolder\appSettings.json"
 }
 
 task RunCIBuild CleanSolution, RestorePackages, BuildSolution, RunIntegrationTests
