@@ -44,7 +44,7 @@ namespace Bookshop.IntegrationTests
 
             if (!string.IsNullOrEmpty(configuration.GetConnectionString("AppVeyorPassword")))
             {
-                testConnectionString = testConnectionString.Replace("postgres", testPassword);
+                testConnectionString = testConnectionString.Replace("password=postgres", $"password={testPassword}");
             }
 
             _appHost = new AppHost(testConnectionString);
