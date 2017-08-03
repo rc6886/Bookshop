@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-export var Hello = function (props) {
+export var Hello = function () {
     return (React.createElement("div", null,
-        React.createElement("h1", null,
-            "Hello from ",
-            props.compiler,
-            " and ",
-            props.framework,
-            "!")));
+        React.createElement("nav", { className: "navbar navbar-toggle-md navbar-inverse bg-inverse fixed-top" },
+            React.createElement("a", { className: "navbar-brand", href: "#" }, "Bookshop")),
+        React.createElement("div", { className: "container" },
+            React.createElement("div", { className: "bookshop" },
+                React.createElement("h1", null, "Bookshop"),
+                React.createElement("div", { className: "row" })))));
 };
-ReactDOM.render(React.createElement(Hello, { compiler: "Typescript", framework: "React" }), document.getElementById("app"));
+ReactDOM.render(React.createElement(Hello, null), document.getElementById("app"));
 //# sourceMappingURL=index.js.map

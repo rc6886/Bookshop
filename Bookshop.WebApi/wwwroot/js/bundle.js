@@ -9739,23 +9739,43 @@ module.exports = getHostComponentFromComposite;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hello", function() { return Hello; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookshopApp", function() { return BookshopApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 
 
-var Hello = function (props) {
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null,
-            "Hello from ",
-            props.compiler,
-            " and ",
-            props.framework,
-            "!")));
+var Navbar = function () {
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("nav", { className: "navbar navbar-toggle-md navbar-inverse bg-inverse fixed-top" },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { className: "navbar-brand", href: "#" }, "Bookshop")));
 };
-__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Hello, { compiler: "Typescript", framework: "React" }), document.getElementById("app"));
+var BookCard = function (_a) {
+    var cardTitle = _a.cardTitle, cardText = _a.cardText;
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card", style: { maxWidth: "300px" } },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "card-img-top", src: "...", alt: "Card image cap", style: { maxWidth: "100%" } }),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card-block" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { className: "card-title" }, cardTitle),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: "card-text" }, cardText),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "btn btn-primary" }, "Go to Book"))));
+};
+var BookshopApp = function () {
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Navbar, null),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "container" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "bookshop" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null, "Bookshop"),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })))))));
+};
+__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookshopApp, null), document.getElementById("app"));
 
 
 /***/ }),
