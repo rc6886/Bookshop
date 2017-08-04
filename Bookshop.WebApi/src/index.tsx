@@ -51,10 +51,21 @@ interface BookInformationProps {
   price: number,
 }
 
-const BookInformation: React.StatelessComponent<BookInformationProps> = ({ id, title, description }) => {
+const BookInformation: React.StatelessComponent<BookInformationProps> = ({ id, title, description, price }) => {
   return (
     <div>
-      This is the book detail section.
+      <div className="row">
+        <h2>{title}</h2>
+      </div>
+      <div className="row">
+          <p>{description}</p>
+      </div>
+      <div className="row">
+          <p>${price}</p>
+      </div>
+      <div className="row">
+        <a href="#" className="btn btn-primary">Buy Now</a>
+      </div>
     </div>
   );
 };
@@ -81,7 +92,7 @@ const BookDetail = () => {
       </div>
     </div>
   );
-}
+};
 
 export const BookshopHome = () => {
   return (

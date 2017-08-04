@@ -11255,8 +11255,18 @@ var BookImage = function (_a) {
     return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, "This is the book image section."));
 };
 var BookInformation = function (_a) {
-    var id = _a.id, title = _a.title, description = _a.description;
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, "This is the book detail section."));
+    var id = _a.id, title = _a.title, description = _a.description, price = _a.price;
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h2", null, title)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null, description)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null,
+                "$",
+                price)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "btn btn-primary" }, "Buy Now"))));
 };
 var BookDetail = function () {
     var bookimage = {
