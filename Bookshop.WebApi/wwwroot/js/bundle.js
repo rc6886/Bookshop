@@ -11219,21 +11219,16 @@ Link.contextTypes = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookshopHome", function() { return BookshopHome; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookshopRouter", function() { return BookshopRouter; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(196);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_bookdetail__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_bookshophome__ = __webpack_require__(228);
+
+
 
 
 
@@ -11241,69 +11236,13 @@ var Navbar = function () {
     return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("nav", { className: "navbar navbar-toggle-md navbar-inverse bg-inverse fixed-top" },
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], { to: "/", className: "navbar-brand" }, "Bookshop")));
 };
-var BookCard = function (_a) {
-    var cardTitle = _a.cardTitle, cardText = _a.cardText;
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card", style: { maxWidth: "300px" } },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "card-img-top", src: "...", alt: "Card image cap", style: { maxWidth: "100%" } }),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card-block" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { className: "card-title" }, cardTitle),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: "card-text" }, cardText),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], { to: "/book/1", className: "btn btn-primary" }, "Go to Book"))));
-};
-var BookImage = function (_a) {
-    var imageUrl = _a.imageUrl;
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, "This is the book image section."));
-};
-var BookInformation = function (_a) {
-    var id = _a.id, title = _a.title, description = _a.description, price = _a.price;
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h2", null, title)),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null, description)),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null,
-                "$",
-                price)),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "btn btn-primary" }, "Buy Now"))));
-};
-var BookDetail = function () {
-    var bookimage = {
-        imageUrl: "Test Url",
-    };
-    var bookInfo = {
-        id: "some_guid",
-        title: "Test Title",
-        description: "Test Description",
-        price: 12
-    };
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-6" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookImage, __assign({}, bookimage))),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-6" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookInformation, __assign({}, bookInfo)))));
-};
-var BookshopHome = function () {
-    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "bookshop" },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null, "Bookshop"),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookCard, { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })))));
-};
 var BookshopRouter = function () {
     return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */], null,
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Navbar, null),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "container" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: "/", component: BookshopHome }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: "/book/:id", component: BookDetail })))));
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: "/", component: __WEBPACK_IMPORTED_MODULE_4__components_bookshophome__["a" /* default */] }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: "/book/:id", component: __WEBPACK_IMPORTED_MODULE_3__components_bookdetail__["a" /* default */] })))));
 };
 __WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookshopRouter, null), document.getElementById("app"));
 
@@ -25791,6 +25730,133 @@ NavLink.defaultProps = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router__ = __webpack_require__(12);
 /* unused harmony reexport default */
+
+
+/***/ }),
+/* 224 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(196);
+
+
+var BookCard = function (_a) {
+    var cardTitle = _a.cardTitle, cardText = _a.cardText;
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card", style: { maxWidth: "300px" } },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "card-img-top", src: "...", alt: "Card image cap", style: { maxWidth: "100%" } }),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "card-block" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { className: "card-title" }, cardTitle),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: "card-text" }, cardText),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], { to: "/book/1", className: "btn btn-primary" }, "Go to Book"))));
+};
+/* harmony default export */ __webpack_exports__["a"] = (BookCard);
+
+
+/***/ }),
+/* 225 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+var BookImage = function (_a) {
+    var imageUrl = _a.imageUrl;
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, "This is the book image section."));
+};
+/* harmony default export */ __webpack_exports__["a"] = (BookImage);
+
+
+/***/ }),
+/* 226 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+var BookInformation = function (_a) {
+    var id = _a.id, title = _a.title, description = _a.description, price = _a.price;
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h2", null, title)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null, description)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null,
+                "$",
+                price)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "btn btn-primary" }, "Buy Now"))));
+};
+/* harmony default export */ __webpack_exports__["a"] = (BookInformation);
+
+
+/***/ }),
+/* 227 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bookimage__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bookinformation__ = __webpack_require__(226);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+
+
+
+var BookDetail = function () {
+    var bookimage = {
+        imageUrl: "Test Url",
+    };
+    var bookInfo = {
+        id: "some_guid",
+        title: "Test Title",
+        description: "Test Description",
+        price: 12
+    };
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-6" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__bookimage__["a" /* default */], __assign({}, bookimage))),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-6" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__bookinformation__["a" /* default */], __assign({}, bookInfo)))));
+};
+/* harmony default export */ __webpack_exports__["a"] = (BookDetail);
+
+
+/***/ }),
+/* 228 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bookcard__ = __webpack_require__(224);
+
+
+var BookshopHome = function () {
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "bookshop" },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null, "Bookshop"),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__bookcard__["a" /* default */], { cardTitle: "Test", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__bookcard__["a" /* default */], { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__bookcard__["a" /* default */], { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-4 mt-3" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__bookcard__["a" /* default */], { cardTitle: "Test2", cardText: "Some quick example text to build on the card title and make up the bulk of the card's content." })))));
+};
+/* harmony default export */ __webpack_exports__["a"] = (BookshopHome);
 
 
 /***/ })
