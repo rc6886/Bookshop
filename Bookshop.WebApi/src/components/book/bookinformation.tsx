@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface BookInformationProps {
   id: string,
@@ -20,7 +21,9 @@ const BookInformation: React.StatelessComponent<BookInformationProps> = ({ id, t
           <p>${price}</p>
       </div>
       <div className="row">
-        <a href="#" className="btn btn-primary">Buy Now</a>
+        <Link to="/cart" className="btn btn-primary">
+          Add to Cart
+        </Link>
       </div>
     </div>
   );

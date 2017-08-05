@@ -1,8 +1,9 @@
 ﻿import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import BookDetail from './components/bookdetail';
-import BookshopHome from './components/bookshophome';
+import BookDetail from './components/book/bookdetail';
+import BookshopHome from './components/book/bookshophome';
+import Cart from './components/cart/cart';
 
 const Navbar = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
   );
 };
 
-export const BookshopRouter = () => {
+const BookshopRouter = () => {
   return (
     <Router>
       <div>
@@ -22,6 +23,7 @@ export const BookshopRouter = () => {
         <div className="container">
           <Route exact path="/" component={BookshopHome} />
           <Route path="/book/:id" component={BookDetail} />
+          <Route path="/cart" component={Cart} />
         </div>
       </div>
     </Router>
