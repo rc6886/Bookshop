@@ -25880,14 +25880,57 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 
+var cartImageStyle = {
+    textAlign: "Center",
+    paddingTop: "30px",
+    height: "80px",
+    width: "80px",
+    backgroundColor: "grey",
+};
+var CartItemRow = function (item) {
+    return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("tr", null,
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("td", { style: { width: "90px" } },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: cartImageStyle })),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("td", { className: "desc" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h3", null, item.title),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", null, item.description)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("td", { className: "small", style: { width: "65px" } },
+            "$",
+            item.price),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("td", null,
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { style: { width: "65px" }, type: "text", name: "price", value: "1" })),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("td", null, "$100.00")));
+};
 var Cart = (function (_super) {
     __extends(Cart, _super);
     function Cart() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Cart.prototype.render = function () {
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, "This is the cart."));
+        var itemRow1 = {
+            title: "Product 1",
+            description: "This is a description for Product 1.",
+            price: 100.00,
+        };
+        var itemRow2 = {
+            title: "Product 2",
+            description: "This is a description for Product 2.",
+            price: 110.00,
+        };
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row" },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("table", { className: "table table-md" },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("tbody", null,
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](CartItemRow, __assign({}, itemRow1)),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](CartItemRow, __assign({}, itemRow2))))));
     };
     return Cart;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
