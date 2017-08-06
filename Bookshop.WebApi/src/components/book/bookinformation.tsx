@@ -25,6 +25,9 @@ const BookInformation: React.StatelessComponent<BookInformationProps> = ({ id, t
           Add to Cart
         </Link>
       </div>
+      <div className="row">
+        <Link to="/edit">Edit</Link>
+      </div>
     </div>
   );
 };

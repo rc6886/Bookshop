@@ -4,7 +4,7 @@ interface IBookEditProps {
   title: string,
   description: string,
   price: number,
-  
+  image: string,
 }
 
 const BookInputField = () => {
@@ -21,7 +21,11 @@ const BookInputField = () => {
 class BookEdit extends React.Component {
   render() {
     return (
-      <BookInputField />
+      <div className="bookshop">
+        <BookInputField />
+      </div>
     );
   }
 }
+
+export default BookEdit;
