@@ -7,7 +7,7 @@ interface IBookEditProps {
   image: string,
 }
 
-const BookInputField = () => {
+const BookInputField: React.SFC<IBookEditProps> = (props) => {
   return (
     <div className="form-group row">
       <label className="col-md-2 col-form-label">Title</label>
@@ -20,9 +20,16 @@ const BookInputField = () => {
 
 class BookEdit extends React.Component {
   render() {
+    const props: IBookEditProps = {
+      title: "test1",
+      description: "test2",
+      image: "test3",
+      price: 123
+    };
+
     return (
       <div className="bookshop">
-        <BookInputField />
+        <BookInputField {...props} />
       </div>
     );
   }

@@ -33331,8 +33331,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 
-var BookInputField = function () {
+var BookInputField = function (props) {
     return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "form-group row" },
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("label", { className: "col-md-2 col-form-label" }, "Title"),
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-6" },
@@ -33344,8 +33352,14 @@ var BookEdit = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     BookEdit.prototype.render = function () {
+        var props = {
+            title: "test1",
+            description: "test2",
+            image: "test3",
+            price: 123
+        };
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "bookshop" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookInputField, null)));
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](BookInputField, __assign({}, props))));
     };
     return BookEdit;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
